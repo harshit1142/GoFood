@@ -4,6 +4,8 @@ const { Result } = require("express-validator");
 dotenv.config();
 
 const food=require("../backend/models/food");
+const type=require("../backend/models/type");
+
 
 const mongoose_url=process.env.Mongoose_URL;
 const mongoDB=async()=>{
@@ -23,7 +25,9 @@ const mongoDB=async()=>{
     //  }
     try {
       const data=await food.find({}).exec();
-      console.log(data);
+      global.food_items=data;
+      const Category=await type.find({}).exec();
+      global.food_category=Category;
     } catch (error) {
       console.log(error);
     }
