@@ -1,14 +1,13 @@
 const mongoose = require("mongoose");
 
 const FoodSchema = new mongoose.Schema(
-  {
-CategoryName:String,
-name:String,
-img:String,
-option:String,
-option:Array,
-description:String
-  }
+{
+    name:String,
+    CategoryName:String,
+    img:String,
+    Option:Array,
+    description:String
+}
 );
 
-module.exports= mongoose.models.Food_item || mongoose.model("Food_item", FoodSchema);
+module.exports= mongoose.models.Type || mongoose.model("Food_item", FoodSchema);

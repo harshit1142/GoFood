@@ -24,6 +24,7 @@ export default function Login() {
       })
       const json=await response.json();
       if(json.success){
+        localStorage.setItem("userEmail",enteredCandidate.email);
         localStorage.setItem("authToken",json.authToken);
         navigate("/");
       }
@@ -37,11 +38,11 @@ export default function Login() {
     <div className='container d-flex justify-content-center w-100 mt-5'>
         <form onSubmit={handleSubmit}>
   <div className="mb-3 ">
-    <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
+    <label htmlFor="exampleInputEmail1" className="form-label text-white">Email address</label>
     <input type="email" onChange={handleChange} name="email" value={enteredCandidate.email} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
   </div>
   <div className="mb-3">
-    <label htmlFor="exampleInputPassword1"  className="form-label">Password</label>
+    <label htmlFor="exampleInputPassword1"  className="form-label text-white">Password</label>
     <input type="password" onChange={handleChange} autoComplete='off' name="password" value={enteredCandidate.password} className="form-control" />
   </div>
   <button type="submit" className="btn btn-success mx-2">Submit</button>

@@ -23,6 +23,7 @@ app.get("/",(req,res)=>{
 
 app.use("/api",require("../backend/Routes/CreateUser.js"));
 app.use("/api",require("../backend/Routes/DisplayData"));
+app.use("/api",require("../backend/Routes/OrderData"));
 
 app.listen(port,()=>{
     console.log(`APP started on port ${port}`);
