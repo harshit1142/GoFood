@@ -20,7 +20,6 @@ export default function Cart() {
           name:data.name
         })
      });
-     console.log(response);
      if(response.status===200){
       dispatch({type:"DROP"})
      }
@@ -33,10 +32,6 @@ export default function Cart() {
       </div>
     )
   }
-  // const handleRemove = (index)=>{
-  //   console.log(index)
-  //   dispatch({type:"REMOVE",index:index})
-  // }
 
   let totalPrice = data.reduce((total, food) => total + food.price, 0)
   return (
