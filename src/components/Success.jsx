@@ -28,7 +28,7 @@ export default function Success() {
 
     useEffect(async ()=> {
         let data = JSON.parse(localStorage.getItem('Lastcart'));
-        if(data.length>0 && localStorage.getItem('session')){
+        if (localStorage.getItem('Lastcart')  && data.length>0 && localStorage.getItem('session')){
             storeOrder();
         }
     },[])
