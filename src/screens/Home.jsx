@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react'
 import Navbar from '../components/Navbar'
 
 import Card from '../components/Card'
+import { useDispathCart } from '../components/ContextReducer';
 
 export default function Home() {
-  
+  let dispatch = useDispathCart();
   const [search,setSearch]=useState('');
   const [FoodItem,setFoodItem]=useState([]);
   const [FoodCat,setFoodCat]=useState([]);
@@ -26,6 +27,11 @@ export default function Home() {
     loadData()
   },[])
 
+  useEffect(() => {
+    if (localStorage.getItem("Lastcart") !== null) {
+      dispatch({ type: "Update", data: JSON.parse(localStorage.getItem('Lastcart')) });
+    }
+  }, [localStorage.getItem("Lastcart")])
 
 
   return (
@@ -41,13 +47,13 @@ export default function Home() {
       </form>
       </div>
     <div className="carousel-item active">
-      <img src="https://source.unsplash.com/random/900x700?Chaat"  style={{filter:"brightness(30%)"}} className="d-block w-100" alt="..."/>
+              <img src="https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?cs=srgb&dl=pexels-chanwalrus-958545.jpg&fm=jpg"  style={{filter:"brightness(30%)"}} className="d-block w-100" alt="..."/>
     </div>
     <div className="carousel-item">
-      <img src="https://source.unsplash.com/random/900x700?curry" style={{filter:"brightness(30%)"}} className="d-block w-100" alt="..."/>
+              <img src="https://images.moneycontrol.com/static-mcnews/2023/10/pexels-anil-sharma-10580198-770x433.jpg?impolicy=website&width=770&height=431" style={{filter:"brightness(30%)"}} className="d-block w-100" alt="..."/>
     </div>
     <div className="carousel-item">
-      <img src="https://source.unsplash.com/random/900x700?dosa" style={{filter:"brightness(30%)"}} className="d-block w-100" alt="..."/>
+              <img src="https://www.tastingtable.com/img/gallery/20-delicious-indian-dishes-you-have-to-try-at-least-once/l-intro-1645057933.jpg" style={{filter:"brightness(30%)"}} className="d-block w-100" alt="..."/>
     </div>
   </div>
 
@@ -67,7 +73,7 @@ export default function Home() {
     </div>
         <div className='container'>
           {
-             FoodCat !==[]
+             FoodCat!==null
              ? FoodCat.map((data)=>{
                return (
                 <div className="row">
@@ -75,7 +81,7 @@ export default function Home() {
                    {data.CategoryName }
                 </div>
                 <hr />
-               {FoodItem.filter((items)=>(items.CategoryName === data.CategoryName)&&(items.name.toLowerCase().includes(search.toLowerCase())))
+               {FoodItem!==null && FoodItem.filter((items)=>(items.CategoryName === data.CategoryName)&&(items.name.toLowerCase().includes(search.toLowerCase())))
                .map(filterItems=>{
                  return (
                   <div className='col-12 col-md-6 col-lg-3 m-3'>

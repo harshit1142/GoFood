@@ -28,7 +28,14 @@ router.post("/createuser",
                 password: secPassword,
                 location: req.body.location
             })
-            res.json({ success: true });
+            let userData = await User.findOne({ email: req.body.email });
+            const data = {
+                user: {
+                    id: userData.id
+                }
+            }
+            const authToken = jwt.sign(data, jwtSecret);
+            res.json({ success: true, authToken: authToken });
         } catch (error) {
             console.log(error);
             res.json({ success: false });

@@ -2,6 +2,9 @@ const express=require("express");
 const app=express();
 const port=5000;
 const mongoDB=require("./db");
+const cors=require("cors")
+
+app.use(cors());
 
 
 app.use((req,res,next)=>{
