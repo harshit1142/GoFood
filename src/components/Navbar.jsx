@@ -11,6 +11,9 @@ export default function Navbar() {
   const [viewCart,setViewCart]=useState(false);
   function handleLogout(){
     localStorage.removeItem("authToken");
+    localStorage.removeItem("userInfo");
+    localStorage.removeItem("Lastcart");
+    localStorage.removeItem("userEmail");
     navigate("/");
   }
   return (
