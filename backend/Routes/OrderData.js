@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const Order=require("../models/Order");
-const { useState } = require("react");
 const stripe = require("stripe")("sk_test_51PY4lKRpg92mkcsJYyxTfv9HbauNzx2B08PV8cp84xBVjzesklKJQE92mMCzJhkJe436nCowp2Rsa0c0U1wmSa8f00gmtOiSC0")
 
 router.post("/create-checkout-session",async(req,res)=>{
