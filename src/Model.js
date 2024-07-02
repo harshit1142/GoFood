@@ -9,7 +9,8 @@ const MODAL_STYLES ={
     transform:'translate(10%,0%)',
     zIndex:10,
     height:'90%',
-    width:'90%'
+    width:'90%',
+    overflowY:'scroll'
 }
 const OVERLAY_STYLES ={
     position:'fixed',

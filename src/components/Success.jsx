@@ -20,6 +20,7 @@ export default function Success() {
                 name: data.name
             })
         });
+        localStorage.removeItem('session');
         if (response.status === 200) {
             dispatch({ type: "DROP" })
         }
@@ -27,8 +28,7 @@ export default function Success() {
 
     useEffect(async ()=> {
         let data = JSON.parse(localStorage.getItem('Lastcart'));
-        
-        if(data.length>0){
+        if(data.length>0 && localStorage.getItem('session')){
             storeOrder();
         }
     },[])

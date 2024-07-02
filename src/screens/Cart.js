@@ -26,31 +26,14 @@ export default function Cart() {
     body:JSON.stringify(body)
    })
    const session=await response.json();
+   localStorage.setItem('session',session.id);
    const result=stripe.redirectToCheckout({
-    sessionId:session.id
-   })
-   console.log(result);
-   if (result.error) {
-     console.log(result.error);
+     sessionId:session.id
+    })
+    if (result.error) {
+      console.log(result.error);
      return;
    }
-    //  let userEmail=localStorage.getItem("userEmail");
-    //  let response=await fetch("http://localhost:5000/api/orderData",{
-    //     method:"POST",
-    //     headers:{
-    //       'Content-Type':'application/json'
-    //     },
-    //     body:JSON.stringify({
-    //       order_data:data,
-    //       email:userEmail,
-    //       Order_date:new Date().toDateString(),
-    //       name:data.name
-    //     })
-    //  });
-    //  if(response.status===200){
-    //   dispatch({type:"DROP"})
-    //  }
-   
   }
 
   useEffect(()=>{
