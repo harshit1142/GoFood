@@ -47,7 +47,7 @@ export default function Navbar() {
       :
       <div className='d-flex'>
         <div className='nav-link fs-5 btn btn-success  text-white mx-2 mt-3' onClick={()=>setViewCart(true)}>
-        My Cart <span class="badge badge-white  bg-danger">{data.length}</span>
+        My Cart <span className="badge badge-white  bg-danger">{data.length}</span>
          </div>
         {viewCart?<Model onClose={()=>setViewCart(false)}><Cart /></Model>:null}
         <div className='nav-link fs-5 btn btn-danger text-white mx-2 mt-3' onClick={handleLogout}>Logout</div>

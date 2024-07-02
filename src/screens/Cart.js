@@ -56,7 +56,7 @@ console.log(data);
   return (
     <div>
 
-      {console.log(data)}
+      
       <div className='container m-auto mt-5 table-responsive  table-responsive-sm table-responsive-md' >
         <table className='table table-hover '>
           <thead className=' text-success fs-4'>
@@ -71,7 +71,7 @@ console.log(data);
           </thead>
           <tbody>
             {data!==null && data.map((food, index) => (
-              <tr className='text-white'>
+              <tr className='text-white' key={index}>
                 <th scope='row' >{index + 1}</th>
                 <td >{food.name}</td>
                 <td>{food.qty}</td>

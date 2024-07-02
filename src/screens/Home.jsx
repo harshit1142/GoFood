@@ -41,9 +41,9 @@ export default function Home() {
         <div id="carouselExampleFade" className="carousel slide carousel-fade" style={{objectFit:"contain !important"}}>
   <div className="carousel-inner" id="carousel" style={{objectFit:"contain !important"}}>
   <div className='carousel-caption ' style={{zIndex:"10"}}>
-  <form class=" d-flex  "  role="search">
-        <input class="form-control me-2 ms-3" type="search" value={search} onChange={(e)=>{setSearch(e.target.value)}} placeholder="Search" aria-label="Search"/>
-        <button class="btn btn-outline-success" type="submit">Search</button>
+  <form className=" d-flex  "  role="search">
+        <input className="form-control me-2 ms-3" type="search" value={search} onChange={(e)=>{setSearch(e.target.value)}} placeholder="Search" aria-label="Search"/>
+        <button className="btn btn-outline-success" type="submit">Search</button>
       </form>
       </div>
     <div className="carousel-item active">
@@ -86,6 +86,7 @@ export default function Home() {
                  return (
                   <div className='col-12 col-md-6 col-lg-3 m-3'>
                     <Card 
+                       key={filterItems._id}
                     foodItem={filterItems}
                     options={filterItems.options[0]}
                     />

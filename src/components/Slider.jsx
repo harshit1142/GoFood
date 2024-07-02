@@ -6,9 +6,9 @@ export default function Slider() {
         <div id="carouselExampleFade" className="carousel slide carousel-fade" style={{objectFit:"contain !important"}}>
   <div className="carousel-inner" id="carousel" style={{objectFit:"contain !important"}}>
   <div className='carousel-caption ' style={{zIndex:"10"}}>
-  <form class=" d-flex  "  role="search">
-        <input class="form-control me-2 ms-3" type="search" placeholder="Search" aria-label="Search"/>
-        <button class="btn btn-outline-success" type="submit">Search</button>
+  <form className=" d-flex  "  role="search">
+        <input className="form-control me-2 ms-3" type="search" placeholder="Search" aria-label="Search"/>
+        <button className="btn btn-outline-success" type="submit">Search</button>
       </form>
       </div>
     <div className="carousel-item active">
