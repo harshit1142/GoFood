@@ -17,10 +17,10 @@ const mongoDB = async () => {
       const Category = await type.find({}).exec();
       global.food_category = Category;
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 }
 

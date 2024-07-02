@@ -18,7 +18,7 @@ export default function MyOrder() {
             let response = await res.json();
             setorderData(response?.orderData || [])
         }).catch(error => {
-            console.log(error);
+            // console.log(error);
         })
     }
 

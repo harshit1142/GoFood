@@ -31,7 +31,7 @@ export default function Cart() {
      sessionId:session.id
     })
     if (result.error) {
-      console.log(result.error);
+      // console.log(result.error);
      return;
    }
   }
@@ -42,7 +42,7 @@ export default function Cart() {
     }
   },[])
 
-console.log(data);
+// console.log(data);
 
   if (data.length==0 ) {
     return (

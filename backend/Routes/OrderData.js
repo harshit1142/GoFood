@@ -36,7 +36,7 @@ router.post("/orderData",async(req,res)=>{
    let data=req.body.order_data;
    await data.splice(0,0,{Order_date:req.body.Order_date})
    let eId=await Order.findOne({'email':req.body.email})
-   console.log(eId);
+//    console.log(eId);
    if(eId ===null )
    {
        try {
@@ -48,7 +48,7 @@ router.post("/orderData",async(req,res)=>{
             res.send({success:true})
           })
        } catch (error) {
-        console.log(error);
+        // console.log(error);
        }
    }
    else{
@@ -59,7 +59,7 @@ router.post("/orderData",async(req,res)=>{
             })
     } catch (error) {
         res.send("Server error",error.message);
-        console.log(error);
+        // console.log(error);
     }
    }
 })
@@ -69,9 +69,9 @@ router.post("/myOrder",async(req,res)=>{
      try {
         let myData=await Order.findOne({"email":req.body.email});
             res.json({orderData:myData});
-        console.log(myData);
+        // console.log(myData);
      } catch (error) {
-         console.log(error+"ads");
+        //  console.log(error+"ads");
       res.send(error);
      }
 })
